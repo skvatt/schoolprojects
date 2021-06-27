@@ -66,13 +66,20 @@ namespace räkna_växel
             else
             {
                     
-                    // writeline skriver ut vad vi får tillbaka, \n att vi får ny rad, {} att vi behandlar variabler i en string, pengarIn - kostnad är beräkningen
+                    //Console.WriteLine skriver ut vad vi får tillbaka, 
                     double pengarTillbaka = pengarIn - avrundadKostnad;
+                    //vi deklarerar en variabel för varje mynt/sedel
                     double tusenlapp = 1000;
+
+                    //vi deklarerar en variabel för antal av varje sedel. Sedan avrundar vi nedåt med Math.Floor och delar pengar tillbaka först med tusenlapp, femhundralapp etc
                     double antalTusenlappar = Math.Floor(pengarTillbaka/tusenlapp);
+
+                    //vi skriver ut antal tusenlappar
                     Console.WriteLine("antal tusenlappar är " + antalTusenlappar);
+
+                    // sedan repeterar vi processen för femhundralappar ned till femtioöringar
                     double femHundraLapp = 500;
-                    double antalFemHundraLappar = Math.Floor((pengarTillbaka%1000)/femHundraLapp);
+                    double antalFemHundraLappar = Math.Floor((pengarTillbaka % 1000)/femHundraLapp);
                     Console.WriteLine("antal femhundralappar är " + antalFemHundraLappar);
                     double hundraLapp = 100;
                     double antalHundraLappar = Math.Floor((pengarTillbaka % 500) / hundraLapp);
@@ -84,7 +91,8 @@ namespace räkna_växel
                     double antalTjugoLappar = Math.Floor((pengarTillbaka % 50) / tjugoLapp);
                     Console.WriteLine("antal tjugolappar är " + antalTjugoLappar);
                     double tior = 10;
-                    double antalTior = Math.Floor((pengarTillbaka % 20) / tior);
+                    //för att få rätt antal tior måste vi lägga till parantes med en modulus eftersom programmet inte håller koll på totalsumman. (annars ger vi ut för mycket pengar)
+                    double antalTior = Math.Floor(((pengarTillbaka % 50 ) % 20) / tior);
                     Console.WriteLine("antal tior är " + antalTior);
                     double femmor = 5;
                     double antalFemmor = Math.Floor((pengarTillbaka % 10) / femmor);
@@ -98,7 +106,7 @@ namespace räkna_växel
                 }
 
 
-
+            s
             }
    //while loopen sluts här, om vi skriver n + enter + 1, enter + 1, enter så stängs programmet av.    
            while (påAv);
